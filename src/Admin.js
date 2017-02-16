@@ -12,6 +12,7 @@ export default class Admin extends Component {
 		return (
 			<div>
 				<div>Welcome to the admin section</div>
+				{this.props.children}
 				<button onClick={this.logoutHandler}>Logout</button>
 			</div>
 		)

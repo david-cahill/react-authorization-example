@@ -178,6 +178,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+      alwaysWriteToDisk: true
     }),
     new HtmlWebpackHarddiskPlugin(),
     // Makes some environment variables available to the JS code, for example:

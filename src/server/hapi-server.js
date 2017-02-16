@@ -39,7 +39,7 @@ export default (port) => {
         		}
         	}, {
         		method: 'GET',
-        		path: '/admin',
+        		path: '/admin/{subroute*}',
         		handler: {
     				file: resolve(__dirname, '../../build/index.html')
     			},

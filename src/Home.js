@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from './actions/UserActions.js';
+import { Link } from 'react-router'
 
 @connect(null, { login })
 class Home  extends Component {
@@ -16,6 +17,8 @@ class Home  extends Component {
     return (
       <div className="App">
         Home
+        <div><Link to="admin">Admin section</Link></div>
+        <div><Link to="admin/users">Admin users section</Link></div>
 	    <button type="submit" onClick={this.loginHandler}>Login</button>
       </div>
     );

@@ -28,10 +28,9 @@ export function retrieveSession() {
 		request
 		.get('/auth/user')
 		.end((err, { body: { login } }) => {
-			if (err) return console.error(err)
-			console.log('**** login = ', login)
-			if (login.token) return dispatch(setUser(login))
-			return browserHistory.push('/')
+			if (err) return browserHistory.push('/')
+			if (login && login.token) return dispatch(setUser(login))
+			
 		})
 	}
 }

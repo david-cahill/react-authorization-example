@@ -5,6 +5,7 @@ import App from './App';
 import Home from './Home'
 import Authorize from './Authorize';
 import Admin from './Admin';
+import AdminUsers from './AdminUsers'
 import './index.css';
 import store from './configureStore.js'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
@@ -18,7 +19,9 @@ render(
 		<Router history={browserHistory}>
 			<Route path="/" component={App}>
 				<IndexRoute component={Home}/>
-				<Route path="admin" component={Authorize(Admin)} onEnter={requireAuth}/>
+				<Route path="admin" component={Authorize(Admin)} onEnter={requireAuth}>
+					<Route path="users" component={AdminUsers}/>
+				</Route>
 			</Route>
 		</Router>
 	</Provider>,

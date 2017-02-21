@@ -9,6 +9,13 @@ import AdminUsers from './AdminUsers'
 import './index.css';
 import store from './configureStore.js'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+injectTapEventPlugin();
+
+const muiTheme = getMuiTheme(darkBaseTheme);
 
 const requireAuth = (nextState, replace) => {
 	if(!sessionStorage.getItem('session')) return replace('/')
@@ -16,14 +23,16 @@ const requireAuth = (nextState, replace) => {
 
 render(
 	<Provider store={store}>
-		<Router history={browserHistory}>
-			<Route path="/" component={App}>
-				<IndexRoute component={Home}/>
-				<Route path="admin" component={Authorize(Admin)} onEnter={requireAuth}>
-					<Route path="users" component={AdminUsers}/>
+		<MuiThemeProvider muiTheme={muiTheme}>
+			<Router history={browserHistory}>
+				<Route path="/" component={App}>
+					<IndexRoute component={Home}/>
+					<Route path="admin" component={Authorize(Admin)} onEnter={requireAuth}>
+						<Route path="users" component={AdminUsers}/>
+					</Route>
 				</Route>
-			</Route>
-		</Router>
+			</Router>
+		</MuiThemeProvider>
 	</Provider>,
   	document.getElementById('root')
 );

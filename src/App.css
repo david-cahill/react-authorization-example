@@ -18,6 +18,12 @@
   font-size: large;
 }
 
+.App-bottomNavigationBar {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

@@ -7,21 +7,10 @@ import { retrieveSession } from './actions/UserActions.js'
 export default function (ChildComponent) { 
 	return class Authorize extends Component {
 		componentWillMount() {
-			//console.log('****')
 			this.props.retrieveSession()
 		}
 
-		componentWillReceiveProps(nextProps) {
-			//const { token } = this.props.user.user
-		}
-
-		componentDidMount() {
-			//console.log('*****')
-			//this.props.retrieveSession()
-		}
-
 		render() {
-			//console.log('*** sessionStorage = ', sessionStorage.getItem('session'))
 			return <ChildComponent { ...this.props} />
 		}
 	}

@@ -6,9 +6,11 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk'
 import userReducer from './reducers/UserReducer.js'
+import bottomNavigationReducer from './reducers/BottomNavigationReducer.js'
 
 const reducer = combineReducers({
-  userReducer
+  userReducer,
+  bottomNavigationReducer
 })
 
 const enhancer = compose(
